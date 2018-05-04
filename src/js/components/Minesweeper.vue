@@ -1,13 +1,20 @@
 <template>
     <div>
-        Minesweeper
+       <play-field></play-field>
     </div>
 </template>
 
 <script>
+    
+    import PlayField from './PlayField.vue';
+    
     export default {
 
         props: {},
+        
+        components: {
+            PlayField
+        },
 
         computed: {},
 

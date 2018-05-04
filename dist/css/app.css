@@ -1,4 +1,9 @@
 body {
-  background-color: #aaaaaa;
+  background-color: #eee;
+}
+
+.container {
+  margin: 20px auto;
+  width: 800px;
 }
 
