@@ -1,8 +1,12 @@
+@import 'node_modules/bootstrap/scss/bootstrap';
+@import 'node_modules/bootstrap-vue/dist/bootstrap-vue'; 
+
+
 body {
-  background-color: #eee; 
+  background-color: #eee;
+  margin-top: 50px; 
 }
 
-.container {
-  margin: 20px auto; 
-  width: 800px;
+[v-cloak] {
+  display: none; 
 }

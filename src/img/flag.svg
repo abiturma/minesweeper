@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+        xmlns:svg="http://www.w3.org/2000/svg"
+        xmlns="http://www.w3.org/2000/svg"
+        version="1.0"
+        width="70pt"
+        height="70pt"
+        id="svg2">
+    <defs
+            id="defs4"/>
+    <g
+            id="layer1">
+        <g
+                transform="translate(-166.613,-90.63749)"
+                id="g10797">
+            <g
+                    transform="translate(132.7578,33.90988)"
+                    id="use4479">
+            </g>
+            <g
+                    transform="matrix(0.6864,0,0,0.508722,528.6887,-109.378)"
+                    id="g8111">
+                <path
+                        d="M -479.69201,421.78775 L -479.69201,473.78375 C -472.85006,470.89662 -462.73879,465.12316 -460.92057,464.08534 C -458.3102,462.59538 -438.60214,451.35059 -438.57187,448.3176 C -438.5416,445.28461 -458.02012,433.63783 -460.60022,432.0948 C -462.44353,430.99241 -472.91184,424.73098 -479.69201,421.78775 z "
+                        style="color:#000000;fill:#008f0f;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.2533038;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible"
+                        id="path8113"/>
+                <rect
+                        width="6.855608"
+                        height="113.23578"
+                        ry="0.0010444396"
+                        x="-486.54684"
+                        y="421.79761"
+                        style="color:#000000;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:3.03818417;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible"
+                        id="rect8115"/>
+            </g>
+        </g>
+    </g>
+</svg>

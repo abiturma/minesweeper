@@ -2,15 +2,21 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Minesweeper</title>
     <link rel="stylesheet" href="./dist/css/app.css">
 </head>
 <body>
 <div id="app">
-
-    <div class="container">
-        <minesweeper>
-        </minesweeper>
+    <div v-cloak>
+    <b-container>
+        <h2>Minesweeper</h2>
+        <b-row>
+            <b-col>
+                <minesweeper>
+                </minesweeper>
+            </b-col>
+        </b-row>
+    </b-container>
     </div>
 </div>
 <script src="./dist/js/app.js"></script>
