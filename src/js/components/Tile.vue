@@ -3,11 +3,11 @@
          @click="show=true"
          @contextmenu.prevent="isFlagged = !isFlagged"
     >
-            <div class="tile--inner" :class="tileClass">
-                <template v-if="show">
-                    <span class="tile--inner__counter" :class="counterClass">{{adjacentBombs || ''}}</span>
-                </template>
-            </div>
+        <div class="tile--inner" :class="tileClass">
+            <template v-if="show">
+                <span class="tile--inner__counter" :class="counterClass">{{adjacentBombs || ''}}</span>
+            </template>
+        </div>
     </div>
 </template>
 
@@ -57,10 +57,11 @@
                 return {
                     bomb: this.hasBomb && this.show,
                     flagged: this.isFlagged,
-                    shown: this.show && !this.hasBomb
+                    shown: this.show && !this.hasBomb,
+                    border: !this.show
                 }
             },
-
+            
             counterClass() {
                 return this.adjacentBombs ? 'level-' + this.adjacentBombs : 'test';
             }
@@ -74,7 +75,6 @@
                     Math.abs(this.x - point.x) <= 1
                     && Math.abs(this.y - point.y) <= 1
                     && !this.hasBomb
-                    && this.adjacentBombs == 0
                 ) {
                     this.show = true;
                 }
@@ -112,14 +112,14 @@
     $red: #aa0000;
 
     .tile {
-        border-top: 2px grey solid;
-        border-left: 2px grey solid;
-        border-bottom: 2px black solid;
-        border-right: 2px black solid;
+        box-sizing: content-box;
         height: 30px;
         width: 30px;
+        border: 1px solid grey;
         background-color: #ddd;
+        margin: -1px; 
     }
+    
 
     .tile:hover {
         background-color: grey;
@@ -144,14 +144,23 @@
     }
 
     .tile--inner {
-        height: 100%;
-        width: 100%;
+        box-sizing: border-box;
+        height: 29px;
+        width: 29px;
         display: flex;
         justify-content: center;
         align-items: center;
         font-weight: bold;
         transition: background-color 0.3s;
 
+    }
+    
+    .tile--inner.border {
+        border-top: 2px lightgrey solid;
+        border-left: 2px lightgrey solid;
+        border-bottom: 2px darkgray solid;
+        border-right: 2px darkgray solid;
+        
     }
 
     .level-1 {
@@ -185,10 +194,6 @@
     .level-8 {
         color: darken($red, 10)
     }
-    
-    
-    
-    
 
 
 </style>
