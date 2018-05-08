@@ -11,22 +11,19 @@
 
   .tile.active:hover {
     background-color: darken($tileBackground, 20);
-    .tile--inner.bordered {
+    .tile-inner.bordered {
       border-color: darken($darkGrey, 10) darken($lightGrey, 10) darken($lightGrey, 10) darken($darkGrey, 10);
     }
   }
 
   .tile:hover {
     background-color: darken($tileBackground, 10);
-    .tile--inner.bordered {
+    .tile-inner.bordered {
       border-color: darken($lightGrey, 10) darken($darkGrey, 10) darken($darkGrey, 10) darken($lightGrey, 10);
     }
   }
 
-
-
-
-  .tile--inner {
+  .tile-inner {
     box-sizing: border-box;
     height: 100%;
     width: 100%;
@@ -35,16 +32,17 @@
     align-items: center;
     font-weight: bold;
     transition: background-color 0.3s;
+    user-select: none;
   }
 
-  .tile--inner.bordered {
+  .tile-inner.bordered {
     border: 2px solid;
     border-color: $lightGrey $darkGrey $darkGrey $lightGrey;
   }
 
 }
 
-.play-field .tile {
+.play-field .tile-inner {
   .level-1 {
     color: $blue;
   }

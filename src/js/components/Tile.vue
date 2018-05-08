@@ -6,9 +6,9 @@
          @contextmenu.prevent="flag"
          :class="clicked ? 'active' : ''"
     >
-        <div class="tile--inner" :class="tileClass">
+        <div class="tile-inner" :class="tileClass">
             <template v-if="show && !isMine">
-                <span class="tile--inner__counter" :class="counterClass">{{adjacentMines || ''}}</span>
+                <span :class="counterClass">{{adjacentMines || ''}}</span>
             </template>
            
         </div>

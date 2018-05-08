@@ -4,7 +4,7 @@ export default [
         level: 1,
         height: 8,
         width: 8,
-        mines: 3,
+        mines: 10,
         name: 'Anfänger',
     },
 
