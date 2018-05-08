@@ -1,54 +1,39 @@
 <template>
-        <h5>Spielzeit: {{elapsedTime}}</h5>
+    <h5>Spielzeit: {{elapsedTime}}</h5>
 </template>
 
 <script>
-    
-    import moment from 'moment'; 
-    
+
+    import {mapGetters, mapMutations, mapState} from 'vuex';
+
     export default {
 
-        props: {
-            
-            value: null,
-            
-            pause: {
-                type: Boolean, 
-                default: false
-            }
-        },
-
         computed: {
+            ...mapState(['pause']),
             
-            elapsedTime() {
-                return moment.utc(moment.duration(this.seconds,'seconds').as('milliseconds')).format('HH:mm:ss');     
+            ...mapGetters(['elapsedTime', 'gameOver']),
+
+            hasPause() {
+                return this.pause || this.gameOver;
             }
         },
 
-        data() {
-            return {
-                seconds: 0,
-            }
-        },
-        
         methods: {
-            
+
+            ...mapMutations(['incrementTimer']),
+
             increment() {
-                if(!this.pause) {
-                    this.seconds ++; 
-                    this.$emit('input',this.seconds)
+                if (!this.hasPause) {
+                    this.incrementTimer();
                 }
             }
-            
-            
+
+
         },
-        
+
         created() {
-            setInterval(this.increment ,1000); 
+            setInterval(this.increment, 1000);
         }
     }
+    
 </script>
-
-<style scoped>
-
-</style>

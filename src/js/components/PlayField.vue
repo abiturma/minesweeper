@@ -1,99 +1,36 @@
 <template>
-    <div class="play-field">
-        <div class="block" v-if="hide">
-            <div class="block-inner">
-                ...Pause...
+        <div class="play-field">
+            <div class="block" v-if="pause">
+                <div class="block-inner">
+                    ...Pause...
+                </div>
+            </div>
+            <div class="play-field--row" v-for="y in height">
+                <tile v-for="x in width" :x="x-1" :y="y-1" :key="x +'#' + y"></tile>
             </div>
         </div>
-        <div class="play-field--row" v-for="y in height">
-            <tile v-for="x in width" :x="x-1" :y="y-1" :fields="fields" :key="x +'#' + y" @revealed="reveal(x-1,y-1)"></tile>
-        </div>
-    </div>
 </template>
 
 <script>
 
     import Tile from './Tile.vue'
+    import {mapState, mapGetters} from 'vuex';
 
     export default {
-
-        props: {
-            width: {
-                type: Number,
-                default: 10
-            },
-            height: {
-                type: Number,
-                default: 10
-            },
-            bombs: {
-                type: Number,
-                default: 10
-            },
-            hide: {
-                type: Boolean,
-                default: false
-            }
-        },
-
-        data() {
-            return {
-                fields: this.buildFields()
-            }
-        },
 
         components: {
             Tile
         },
 
         computed: {
-            
-            gameOver() {
-                return _(this.fields).reject((field) => field.open || field.isBomb).isEmpty(); 
-            }
-            
+
+            ...mapState(['pause']),
+
+            ...mapGetters(['height', 'width']),
         },
-
-        methods: {
-
-            buildFields() {
-
-                let x, y;
-                let bombsLeft = this.bombs;
-                let fieldsLeft = this.height * this.width;
-                let result = {};
-                for (x = 0; x < this.width; x++) {
-                    for (y = 0; y < this.height; y++) {
-                        let open = 0;
-                        let isBomb = this.roll(bombsLeft / fieldsLeft);
-                        bombsLeft -= isBomb;
-                        result[x + '#' + y] = {x, y, isBomb, open};
-                        fieldsLeft--;
-                    }
-                }
-                return result;
-
-            },
-
-            roll(propability) {
-                return Math.random() < propability ? 1 : 0;
-            },
-
-            reveal(x,y) {
-                this.fields[x + '#' + y].open = 1;
-            }
-            
-        },
-        
-        watch: {
-            gameOver(value) {
-                if(value) {
-                    this.$emit('gameOver')
-                }    
-            }
-        }
-
+       
     }
+    
 </script>
 
 <style scoped>
@@ -120,6 +57,7 @@
         display: flex;
         position: relative;
         flex-direction: column;
+        margin-bottom: 10px; 
     }
 
     .play-field.hide {

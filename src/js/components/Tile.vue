@@ -7,8 +7,8 @@
          :class="clicked ? 'active' : ''"
     >
         <div class="tile--inner" :class="tileClass">
-            <template v-if="show && !hasBomb">
-                <span class="tile--inner__counter" :class="counterClass">{{adjacentBombs || ''}}</span>
+            <template v-if="show && !isMine">
+                <span class="tile--inner__counter" :class="counterClass">{{adjacentMines || ''}}</span>
             </template>
            
         </div>
@@ -16,7 +16,9 @@
 </template>
 
 <script>
-    import _ from 'lodash'; 
+    
+    import {mapState, mapMutations} from 'vuex'; 
+    
     export default {
 
         props: {
@@ -30,12 +32,6 @@
                 required: true
             },
 
-            fields: {
-                type: Object,
-                required: true
-            },
-
-
         },
 
         data() {
@@ -48,41 +44,45 @@
 
         computed: {
 
-            hasBomb() {
-                return this.fields[this.x+ '#' + this.y].isBomb;
+            ...mapState(['playField']),
+            
+            field() {
+                return this.playField.getFieldByCoordinates(this.x,this.y)
+            },
+            
+            isMine() {
+                return this.field.isMine;
             },
 
-            adjacentBombs() {
-                
-                return _(this.fields).filter((field) => Math.abs(field.x-this.x)<=1 && Math.abs(field.y - this.y)<=1)
-                        .filter('isBomb')
-                        .size()
-                    - this.hasBomb;
+            adjacentMines() {
+                return this.playField.adjacentMines(this.field)
             },
 
             tileClass() {
                 return {
-                    bomb: this.hasBomb && this.show,
+                    bomb: this.isMine && this.show,
                     flagged: this.isFlagged,
-                    shown: this.show && !this.hasBomb,
+                    shown: this.show && !this.isMine,
                     bordered: !this.show && !this.isFlagged,
                     active: this.clicked
                 }
             },
 
             counterClass() {
-                return this.adjacentBombs ? 'level-' + this.adjacentBombs : '';
+                return this.adjacentMines ? 'level-' + this.adjacentMines : '';
             }
 
         },
 
         methods: {
 
+            ...mapMutations(['revealField','setExplosion']),
+            
             revealIfEmpty(point) {
                 if (
                     Math.abs(this.x - point.x) <= 1
                     && Math.abs(this.y - point.y) <= 1
-                    && !this.hasBomb
+                    && !this.isMine
                 ) {
                     this.show = true;
                 }
@@ -111,16 +111,17 @@
                 if (!show) {
                     return;
                 }
-                if (!this.adjacentBombs) {
+                if (!this.adjacentMines && !this.isMine) {
                     setTimeout(() => events.$emit('emptyTile', {x: this.x, y: this.y}), 30)
                 }
+                
                 this.isFlagged = false;
                 
-                if (this.hasBomb) {
-                    events.$emit('boom');
+                if (this.isMine) {
+                    this.setExplosion(true); 
                 }
                 
-                this.$emit('revealed')
+                this.revealField(this.field); 
             }
         },
 
@@ -128,6 +129,7 @@
             events.$on('emptyTile', this.revealIfEmpty)
         }
     }
+    
 </script>
 
 <style lang="scss" scoped>
