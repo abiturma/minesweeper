@@ -22620,7 +22620,7 @@ module.exports = Vue;
     height: 16,
     width: 16,
     mines: 40,
-    name: 'Forgeschritten'
+    name: 'Fortgeschritten'
 }, {
     level: 3,
     height: 16,
@@ -55046,8 +55046,6 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
-//
-//
 
 
 
@@ -55885,17 +55883,21 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(348)
+}
 var normalizeComponent = __webpack_require__(13)
 /* script */
 var __vue_script__ = __webpack_require__(219)
 /* template */
-var __vue_template__ = __webpack_require__(220)
+var __vue_template__ = __webpack_require__(350)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
-var __vue_styles__ = null
+var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = null
+var __vue_scopeId__ = "data-v-2c469584"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -55939,6 +55941,12 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -56052,181 +56060,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 });
 
 /***/ }),
-/* 220 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c(
-        "b-row",
-        [
-          _c(
-            "b-col",
-            [
-              _c(
-                "b-form-group",
-                { attrs: { label: "Schwierigkeitsgrad" } },
-                [
-                  _c("b-form-radio-group", {
-                    attrs: {
-                      options: _vm.levelOptions,
-                      "value-field": "level",
-                      "text-field": "name"
-                    },
-                    model: {
-                      value: _vm.level,
-                      callback: function($$v) {
-                        _vm.level = _vm._n($$v)
-                      },
-                      expression: "level"
-                    }
-                  })
-                ],
-                1
-              )
-            ],
-            1
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      !_vm.level
-        ? _c(
-            "b-row",
-            [
-              _c("b-col", [
-                _c("div", { staticClass: "form-group" }, [
-                  _c("label", [_vm._v("Höhe")]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model.number",
-                        value: _vm.height,
-                        expression: "height",
-                        modifiers: { number: true }
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "number" },
-                    domProps: { value: _vm.height },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.height = _vm._n($event.target.value)
-                      },
-                      blur: function($event) {
-                        _vm.$forceUpdate()
-                      }
-                    }
-                  })
-                ])
-              ]),
-              _vm._v(" "),
-              _c("b-col", [
-                _c("div", { staticClass: "form-group" }, [
-                  _c("label", [_vm._v("Breite")]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model.number",
-                        value: _vm.width,
-                        expression: "width",
-                        modifiers: { number: true }
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "number" },
-                    domProps: { value: _vm.width },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.width = _vm._n($event.target.value)
-                      },
-                      blur: function($event) {
-                        _vm.$forceUpdate()
-                      }
-                    }
-                  })
-                ])
-              ]),
-              _vm._v(" "),
-              _c("b-col", [
-                _c("div", { staticClass: "form-group" }, [
-                  _c("label", [_vm._v("Minen")]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model.number",
-                        value: _vm.mines,
-                        expression: "mines",
-                        modifiers: { number: true }
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "number" },
-                    domProps: { value: _vm.mines },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.mines = _vm._n($event.target.value)
-                      },
-                      blur: function($event) {
-                        _vm.$forceUpdate()
-                      }
-                    }
-                  })
-                ])
-              ])
-            ],
-            1
-          )
-        : _vm._e(),
-      _vm._v(" "),
-      _c(
-        "b-button",
-        {
-          attrs: { variant: "primary" },
-          on: {
-            click: function($event) {
-              _vm.startGame()
-            }
-          }
-        },
-        [_vm._v("\n        Los geht's\n    ")]
-      )
-    ],
-    1
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-2c469584", module.exports)
-  }
-}
-
-/***/ }),
+/* 220 */,
 /* 221 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -67843,6 +67677,232 @@ webpackContext.id = 343;
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 347 */,
+/* 348 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(349);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(210)("d9c09a1e", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-2c469584\",\"scoped\":true,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./MainMenu.vue", function() {
+     var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-2c469584\",\"scoped\":true,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./MainMenu.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 349 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(20)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.level-controls[data-v-2c469584] .custom-control-label::before {\n    background-color: #caced2;\n}\n\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 350 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "game-controls" }, [
+    _c(
+      "div",
+      { staticClass: "mt-4 mb-5" },
+      [
+        _c(
+          "b-row",
+          [
+            _c(
+              "b-col",
+              [
+                _c(
+                  "b-form-group",
+                  { attrs: { label: "Wähle einen Schwierigkeitsgrad" } },
+                  [
+                    _c("b-form-radio-group", {
+                      staticClass: "level-controls",
+                      attrs: {
+                        options: _vm.levelOptions,
+                        "value-field": "level",
+                        "text-field": "name"
+                      },
+                      model: {
+                        value: _vm.level,
+                        callback: function($$v) {
+                          _vm.level = _vm._n($$v)
+                        },
+                        expression: "level"
+                      }
+                    })
+                  ],
+                  1
+                )
+              ],
+              1
+            )
+          ],
+          1
+        ),
+        _vm._v(" "),
+        !_vm.level
+          ? _c(
+              "b-row",
+              [
+                _c("b-col", [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", [_vm._v("Höhe")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model.number",
+                          value: _vm.height,
+                          expression: "height",
+                          modifiers: { number: true }
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "number" },
+                      domProps: { value: _vm.height },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.height = _vm._n($event.target.value)
+                        },
+                        blur: function($event) {
+                          _vm.$forceUpdate()
+                        }
+                      }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("b-col", [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", [_vm._v("Breite")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model.number",
+                          value: _vm.width,
+                          expression: "width",
+                          modifiers: { number: true }
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "number" },
+                      domProps: { value: _vm.width },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.width = _vm._n($event.target.value)
+                        },
+                        blur: function($event) {
+                          _vm.$forceUpdate()
+                        }
+                      }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("b-col", [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", [_vm._v("Minen")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model.number",
+                          value: _vm.mines,
+                          expression: "mines",
+                          modifiers: { number: true }
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "number" },
+                      domProps: { value: _vm.mines },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.mines = _vm._n($event.target.value)
+                        },
+                        blur: function($event) {
+                          _vm.$forceUpdate()
+                        }
+                      }
+                    })
+                  ])
+                ])
+              ],
+              1
+            )
+          : _vm._e()
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      [
+        _c(
+          "b-button",
+          {
+            attrs: { variant: "primary" },
+            on: {
+              click: function($event) {
+                _vm.startGame()
+              }
+            }
+          },
+          [_vm._v("\n            Los geht's\n        ")]
+        )
+      ],
+      1
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-2c469584", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

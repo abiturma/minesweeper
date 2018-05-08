@@ -1,6 +1,5 @@
 <template>
     <div>
-        
         <div v-if="playing" class="play-field-wrapper">
             <game-timer></game-timer>
             <play-field></play-field>
@@ -12,7 +11,6 @@
         </div>
         
         <in-game-messages></in-game-messages>
-        
     </div>
 
 </template>

@@ -1,6 +1,13 @@
 body {
-  background-color: #eee;
+  background-color: #fff;
   margin-top: 50px;
+}
+
+#app > .container {
+  background-color: #f4f4f4;
+  padding: 20px 30px 100px 30px;
+  border-radius: 5px;
+  box-shadow: 11px 10px 11px -5px rgba(0, 0, 0, 0.1);
 }
 
 [v-cloak] {

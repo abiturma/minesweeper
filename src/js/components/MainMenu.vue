@@ -1,43 +1,49 @@
 <template>
-    <div>
-        <b-row>
-            <b-col>
-                <b-form-group label="Schwierigkeitsgrad">
-                    <b-form-radio-group v-model.number="level"
-                                        :options="levelOptions"
-                                        value-field="level"
-                                        text-field="name"
-                    >
-                    </b-form-radio-group>
-                </b-form-group>
-            </b-col>
-        </b-row>
+    <div class="game-controls">
+        <div class="mt-4 mb-5">
+            <b-row>
+                <b-col>
+                    <b-form-group label="Wähle einen Schwierigkeitsgrad">
+                        <b-form-radio-group v-model.number="level"
+                                            :options="levelOptions"
+                                            value-field="level"
+                                            text-field="name"
+                                            class="level-controls"
+                        >
+                        </b-form-radio-group>
+                    </b-form-group>
+                </b-col>
+            </b-row>
 
-        <b-row v-if="!level">
-            <b-col>
-                <div class="form-group">
-                    <label>Höhe</label>
-                    <input type="number" v-model.number="height" class="form-control">
-                </div>
-            </b-col>
-            <b-col>
+            <b-row v-if="!level">
+                <b-col>
+                    <div class="form-group">
+                        <label>Höhe</label>
+                        <input type="number" v-model.number="height" class="form-control">
+                    </div>
+                </b-col>
+                <b-col>
 
-                <div class="form-group">
-                    <label>Breite</label>
-                    <input type="number" v-model.number="width" class="form-control">
-                </div>
-            </b-col>
-            <b-col>
+                    <div class="form-group">
+                        <label>Breite</label>
+                        <input type="number" v-model.number="width" class="form-control">
+                    </div>
+                </b-col>
+                <b-col>
 
-                <div class="form-group">
-                    <label>Minen</label>
-                    <input type="number" v-model.number="mines" class="form-control">
-                </div>
-            </b-col>
-        </b-row>
-        <b-button variant="primary" @click="startGame()">
-            Los geht's
-        </b-button>
+                    <div class="form-group">
+                        <label>Minen</label>
+                        <input type="number" v-model.number="mines" class="form-control">
+                    </div>
+                </b-col>
+            </b-row>
+        </div>
+
+        <div>
+            <b-button variant="primary" @click="startGame()">
+                Los geht's
+            </b-button>
+        </div>
     </div>
 
 </template>
@@ -107,10 +113,19 @@
         methods: {
 
             ...mapMutations(['setHeight', 'setWidth', 'setMines', 'setLevel']),
-            
+
             ...mapActions(['startGame'])
 
         },
     }
-    
+
 </script>
+
+<style scoped>
+
+    .level-controls /deep/ .custom-control-label::before {
+        background-color: #caced2;  
+    }
+    
+    
+</style>
