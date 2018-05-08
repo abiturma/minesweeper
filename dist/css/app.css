@@ -10814,3 +10814,150 @@ body {
   display: none;
 }
 
+.play-field-wrapper {
+  margin-top: 20px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.play-field {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.play-field.hide {
+  opacity: 0.2;
+}
+
+.play-field-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.play-field-block {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 2;
+  background-color: #ddd;
+  opacity: 0.85;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.play-field-block-inner {
+  color: #000;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.play-field .tile {
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  height: 30px;
+  width: 30px;
+  border: 1px solid #777;
+  border-width: 0 1px 1px 0;
+  background-color: #ddd;
+}
+
+.play-field .tile.active:hover {
+  background-color: #aaaaaa;
+}
+
+.play-field .tile.active:hover .tile--inner.bordered {
+  border-color: #919090 #b3b2b2 #b3b2b2 #919090;
+}
+
+.play-field .tile:hover {
+  background-color: #c4c3c3;
+}
+
+.play-field .tile:hover .tile--inner.bordered {
+  border-color: #b3b2b2 #919090 #919090 #b3b2b2;
+}
+
+.play-field .tile--inner {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-weight: bold;
+  -webkit-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+}
+
+.play-field .tile--inner.bordered {
+  border: 2px solid;
+  border-color: #ccc #aaa #aaa #ccc;
+}
+
+.play-field .tile .level-1 {
+  color: #0000ff;
+}
+
+.play-field .tile .level-2 {
+  color: #ffaa00;
+}
+
+.play-field .tile .level-3 {
+  color: #cc8800;
+}
+
+.play-field .tile .level-4 {
+  color: #996600;
+}
+
+.play-field .tile .level-5 {
+  color: #ff1111;
+}
+
+.play-field .tile .level-6 {
+  color: #dd0000;
+}
+
+.play-field .tile .level-7 {
+  color: #aa0000;
+}
+
+.play-field .tile .level-8 {
+  color: #770000;
+}
+
+.play-field-row .tile:first-child {
+  border-width: 0 1px 1px 1px;
+}
+
+.play-field-row:first-child .tile {
+  border-width: 1px 1px 1px 0px;
+}
+
+.play-field-row:first-child .tile:first-child {
+  border-width: 1px 1px 1px 1px;
+}
+

@@ -1,0 +1,37 @@
+.play-field-wrapper {
+  margin-top: 20px;
+  width: fit-content
+}
+
+.play-field {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.play-field.hide {
+  opacity: 0.2;
+}
+
+.play-field-row {
+  display: flex;
+}
+
+.play-field-block {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 2;
+  background-color: #ddd;
+  opacity: 0.85;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.play-field-block-inner {
+  color: #000;
+  font-size: 40px;
+  font-weight: bold;
+}

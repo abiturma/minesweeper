@@ -1,6 +1,5 @@
 <template>
     <div>
-
         <b-row>
             <b-col>
                 <b-form-group label="Schwierigkeitsgrad">

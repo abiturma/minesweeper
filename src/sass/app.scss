@@ -1,12 +1,11 @@
 @import 'node_modules/bootstrap/scss/bootstrap';
 @import 'node_modules/bootstrap-vue/dist/bootstrap-vue'; 
 
+@import 'variables'; 
+@import 'normalize'; 
+@import 'playField'; 
+@import 'tile'; 
 
-body {
-  background-color: #eee;
-  margin-top: 50px; 
-}
 
-[v-cloak] {
-  display: none; 
-}
+
+

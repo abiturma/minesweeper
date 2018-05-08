@@ -43,13 +43,3 @@
     }
     
 </script>
-
-<style scoped>
-
-    .play-field-wrapper {
-        margin-top: 20px;
-        width: fit-content
-    }
-
-
-</style>
