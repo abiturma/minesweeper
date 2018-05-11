@@ -7,6 +7,12 @@
     import {mapGetters, mapMutations, mapState} from 'vuex';
 
     export default {
+        
+        data() {
+            return {
+                interval: null
+            }
+        },
 
         computed: {
             ...mapState(['pause']),
@@ -30,9 +36,13 @@
 
 
         },
+        
+        beforeDestroy() {
+            clearInterval(this.interval); 
+        },
 
         created() {
-            setInterval(this.increment, 1000);
+            this.interval = setInterval(this.increment, 1000);
         }
     }
     

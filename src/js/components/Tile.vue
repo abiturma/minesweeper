@@ -83,6 +83,7 @@
                     Math.abs(this.x - point.x) <= 1
                     && Math.abs(this.y - point.y) <= 1
                     && !this.isMine
+                    && !this.isFlagged
                 ) {
                     this.show = true;
                 }
